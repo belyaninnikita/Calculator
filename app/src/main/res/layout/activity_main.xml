@@ -56,7 +56,7 @@
             <TextView
                 style="@style/ActionButton"
                 android:id="@+id/btn_rs"
-                android:text="_"
+                android:text=")"
                 />
 
             <TextView
