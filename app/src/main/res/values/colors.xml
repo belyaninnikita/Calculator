@@ -7,4 +7,26 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    
+    <style name="ActionButton">
+        <item name="android:layout_width" >0dp</item>
+        <item name="android:layout_height" >match_parent</item>
+        <item name="android:layout_weight" >1</item>
+        <item name="android:background" >#8a5551</item>
+        <item name="android:textSize" >19sp</item>
+        <item name="android:textColor" >#ffff</item>
+        <item name="android:gravity" >center</item>
+        <item name="android:layout_margin" >0.5dp</item>
+    </style>
+
+    <style name="NumberButton">
+        <item name="android:layout_width" >0dp</item>
+        <item name="android:layout_height" >match_parent</item>
+        <item name="android:layout_weight" >1</item>
+        <item name="android:background" >#52555E</item>
+        <item name="android:textSize" >19sp</item>
+        <item name="android:textColor" >#ffff</item>
+        <item name="android:gravity" >center</item>
+        <item name="android:layout_margin" >0.5dp</item>
+    </style>
 </resources>
