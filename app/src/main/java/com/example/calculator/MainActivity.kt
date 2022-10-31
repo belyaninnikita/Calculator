@@ -2,7 +2,9 @@ package com.example.calculator
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import com.example.calculator.databinding.ActivityMainBinding
+import net.objecthunter.exp4j.ExpressionBuilder
 
 lateinit var binding : ActivityMainBinding
 
@@ -26,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         binding.btn7.setOnClickListener() { setTextFields("7") }
         binding.btn8.setOnClickListener() { setTextFields("8") }
         binding.btn9.setOnClickListener() { setTextFields("9") }
-        binding.btnM.setOnClickListener() { setTextFields("-") }
+        binding.btnV.setOnClickListener() { setTextFields("-") }
         binding.btnS.setOnClickListener() { setTextFields("+") }
         binding.btnM.setOnClickListener() { setTextFields("*") }
         binding.btnD.setOnClickListener() { setTextFields("/") }
@@ -46,12 +48,35 @@ class MainActivity : AppCompatActivity() {
             binding.resultText.text = ""
         }
 
+        binding.btnE.setOnClickListener()
+        {
+            try
+            {
+                val ex = ExpressionBuilder(binding.mathOperation.text.toString()).build()
+                val result = ex.evaluate()
 
+                val longRes = result.toLong()
+                if(result == longRes.toDouble())
+                    binding.resultText.text = longRes.toString()
+                else
+                    binding.resultText.text = result.toString()
+            }
+            catch(e:Exception)
+            {
+                Log.d("MyLog", "message: ${e.message}")
+            }
+        }
 
     }
 
     fun setTextFields(str : String)
     {
+        if( binding.resultText.text != "")
+        {
+            binding.mathOperation.text = binding.resultText.text
+
+            binding.resultText.text = ""
+        }
         binding.mathOperation.append(str)
     }
 }
